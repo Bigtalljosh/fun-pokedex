@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Business.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Api.IntegrationTests", "FunPokedex.Api.IntegrationTests\FunPokedex.Api.IntegrationTests.csproj", "{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PokemonApi", "PokemonApi", "{482BE998-42D5-4573-94E4-A4A5096FB7ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokemon.YodaApi", "FunPokemon.YodaApi\FunPokemon.YodaApi.csproj", "{CC184888-1BB7-4883-9394-78E3F0C1820E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,13 +51,19 @@ Global
 		{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
-		{A3A3D959-2D68-40A1-BEA8-E6A496E95C40} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84} = {482BE998-42D5-4573-94E4-A4A5096FB7ED}
+		{A3A3D959-2D68-40A1-BEA8-E6A496E95C40} = {482BE998-42D5-4573-94E4-A4A5096FB7ED}
+		{482BE998-42D5-4573-94E4-A4A5096FB7ED} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
+		{CC184888-1BB7-4883-9394-78E3F0C1820E} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0606EA2E-E0CE-4583-9B69-2F2C60223BC4}

@@ -31,5 +31,19 @@ namespace FunPokedex.Api.Controllers
 
             return NotFound();
         }
+
+        [HttpGet]
+        [Route("/translated/{pokemonName}")]
+        public async Task<IActionResult> GetTranslated(string pokemonName)
+        {
+            var pokemon = await _pokemonService.GetTranslated(pokemonName);
+
+            if (pokemon != null)
+            {
+                return Ok(pokemon);
+            }
+
+            return NotFound();
+        }
     }
 }

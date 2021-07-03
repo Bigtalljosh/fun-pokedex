@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FunPokedex.PokemonApi\FunPokedex.PokemonApi.csproj" />
+    <ProjectReference Include="..\FunPokemon.YodaApi\FunPokemon.YodaApi.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 using FunPokedex.Business;
 using FunPokedex.PokemonApi;
+using FunPokemon.YodaApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +30,13 @@ namespace FunPokedex.Api
             {
                 client.BaseAddress = new Uri(Configuration["Services:PokemonApi:BaseUri"]);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
+            })
+            .SetHandlerLifetime(TimeSpan.FromMinutes(5))
+            .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddHttpClient<IYodaApiService, YodaApiService>(client =>
+            {
+                client.BaseAddress = new Uri(Configuration["Services:YodaApi:BaseUri"]);
             })
             .SetHandlerLifetime(TimeSpan.FromMinutes(5))
             .AddPolicyHandler(GetRetryPolicy());
