@@ -4,7 +4,6 @@ namespace FunPokedex.PokemonApi
 {
     public interface IPokemonApiService
     {
-        Task<PokemonApiDetailsResponse> GetPokemonDetails(string pokemonName);
-        Task<PokemonApiSpeciesResponse> GetPokemonSpeciesDetails(string pokemonName);
+        Task<PokemonApiResponse> GetPokemonDetails(string pokemonNameOrId);
     }
 }

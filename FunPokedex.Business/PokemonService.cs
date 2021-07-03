@@ -24,19 +24,10 @@ namespace FunPokedex.Business
             var sanitisedInput = SanitiseInput(pokemonNameOrId);
             var pokemonDetails = await _pokemonApiService.GetPokemonDetails(sanitisedInput);
 
-            if (pokemonDetails is null) return null;
+            if (pokemonDetails is null) 
+                return null;
 
-            var response = new Pokemon();
-            response.MapDetails(pokemonDetails);
-
-            var speciesDetails = await _pokemonApiService.GetPokemonSpeciesDetails(sanitisedInput);
-
-            if (speciesDetails != null)
-            {
-                response.MapSpecies(speciesDetails);
-            }
-
-            return response;
+            return Pokemon.Map(pokemonDetails);
         }
 
         public async Task<Pokemon> GetTranslated(string pokemonNameOrId)
@@ -61,7 +52,7 @@ namespace FunPokedex.Business
                     if (shakespearResponse != null && shakespearResponse.Success.Total >= 1)
                     {
                         pokemonResponse.Description = shakespearResponse.Contents.Translation;
-                    }
+                    }                    
                 }
             }
             catch(Exception)

@@ -172,7 +172,7 @@ namespace FunPokedex.PokemonApi
         public Pokemon Pokemon { get; set; }
     }
 
-    public class PokemonApiSpeciesResponse
+    public class PokemonApiResponse
     {
         [JsonPropertyName("base_happiness")]
         public int BaseHappiness { get; set; }
