@@ -20,7 +20,7 @@ namespace FunPokedex.Business.UnitTests
                 Id = 94,
                 Name = "Gengar",
                 FlavorTextEntries = new System.Collections.Generic.List<FlavorTextEntry> {
-                    new FlavorTextEntry { FlavorText = "Under a full moon, this POKÈMON likes to mimic the shadows of people and laugh at their fright." } },
+                    new FlavorTextEntry {Language = new Language{Name = "en" }, FlavorText = "Under a full moon, this POKÈMON likes to mimic the shadows of people and laugh at their fright." } },
                 Habitat = new Habitat { Name = "cave" },
                 IsLegendary = false
             };
@@ -37,7 +37,7 @@ namespace FunPokedex.Business.UnitTests
         {
             var pokemonName = "gengar";
             var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespeareApiService);
-           
+
             var response = await service.Get(pokemonName);
 
             Assert.NotNull(response);
