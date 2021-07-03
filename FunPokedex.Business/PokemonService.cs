@@ -1,4 +1,5 @@
 ﻿using FunPokedex.PokemonApi;
+using FunPokedex.ShakespearApi;
 using FunPokemon.YodaApi;
 using System;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ namespace FunPokedex.Business
     {
         private readonly IPokemonApiService _pokemonApiService;
         private readonly IYodaApiService _yodaApiService;
+        private readonly IShakespearApiService _shakespearApiService;
 
-        public PokemonService(IPokemonApiService pokemonApiService, IYodaApiService yodaApiService)
+        public PokemonService(IPokemonApiService pokemonApiService, IYodaApiService yodaApiService, IShakespearApiService shakespearApiService)
         {
             _pokemonApiService = pokemonApiService;
             _yodaApiService = yodaApiService;
+            _shakespearApiService = shakespearApiService;
         }
 
         public async Task<Pokemon> Get(string pokemonNameOrId)
@@ -54,6 +57,11 @@ namespace FunPokedex.Business
                 else
                 {
                     // Apply Shakespear
+                    var shakespearResponse = await _shakespearApiService.TranslateToShakespearSpeak(pokemonResponse.Description);
+                    if (shakespearResponse != null && shakespearResponse.Success.Total >= 1)
+                    {
+                        pokemonResponse.Description = shakespearResponse.Contents.Translation;
+                    }
                 }
             }
             catch(Exception)
