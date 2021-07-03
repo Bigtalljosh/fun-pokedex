@@ -20,8 +20,8 @@ namespace FunPokedex.PokemonApi
 
         public async Task<PokemonApiResponse> GetPokemonDetails(string pokemonNameOrId)
         {
-            // In a production scenario we should never use user input as a cache key!
-            var cacheKey = $"pokemon-{pokemonNameOrId}";
+            var hashedPokemon = Convert.ToBase64String(Encoding.UTF8.GetBytes(pokemonNameOrId));
+            var cacheKey = $"pokemon-{hashedPokemon}";
 
             if (!_cache.TryGetValue(cacheKey, out PokemonApiResponse pokemonResponse))
             {

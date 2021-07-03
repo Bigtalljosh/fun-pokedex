@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
@@ -20,8 +21,8 @@ namespace FunPokedex.ShakespeareApi
 
         public async Task<ShakespeareApiResponse> TranslateToShakespeareSpeak(string textToTranslate)
         {
-            // In a production scenario we should never use user input as a cache key!
-            var cacheKey = $"yoda-{textToTranslate}";
+            var hashedInput = Convert.ToBase64String(Encoding.UTF8.GetBytes(textToTranslate));
+            var cacheKey = $"yoda-{hashedInput}";
 
             if (!_cache.TryGetValue(cacheKey, out ShakespeareApiResponse shakespeareResponse))
             {
