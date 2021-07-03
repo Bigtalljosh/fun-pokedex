@@ -4,13 +4,13 @@ using System.Linq;
 
 namespace FunPokedex.Business
 {
-    public class Pokemon
+    public record Pokemon
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; init; }
+        public string Name { get; init; }
         public string Description { get; set; }
-        public string Habitat { get; set; }
-        public bool IsLegendary { get; set; }
+        public string Habitat { get; init; }
+        public bool IsLegendary { get; init; }
 
         public static Pokemon Map(PokemonApiResponse pokemonApiResponse)
         {
@@ -18,7 +18,11 @@ namespace FunPokedex.Business
             {
                 Id = pokemonApiResponse.Id,
                 Name = pokemonApiResponse.Name,
-                Description = pokemonApiResponse.FlavorTextEntries.FirstOrDefault(e => e.Language.Name.Equals("en", StringComparison.InvariantCultureIgnoreCase)).FlavorText.Replace("\n", " ").Replace("\f", " "),
+                Description = pokemonApiResponse.FlavorTextEntries?
+                    .FirstOrDefault(e => e.Language.Name.Equals("en", StringComparison.InvariantCultureIgnoreCase)).FlavorText
+                    .Replace("\n", " ")
+                    .Replace("\f", " ") 
+                    ?? string.Empty,
                 IsLegendary = pokemonApiResponse.IsLegendary,
                 Habitat = pokemonApiResponse.Habitat.Name,
             };

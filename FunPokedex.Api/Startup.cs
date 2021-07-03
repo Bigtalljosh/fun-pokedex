@@ -24,7 +24,6 @@ namespace FunPokedex.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IPokemonApiService, PokemonApiService>(client =>
@@ -32,22 +31,19 @@ namespace FunPokedex.Api
                 client.BaseAddress = new Uri(Configuration["Services:PokemonApi:BaseUri"]);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
             })
-            .SetHandlerLifetime(TimeSpan.FromMinutes(5))
-            .AddPolicyHandler(GetRetryPolicy());
+            .AddPolicyHandler(ExponentialBackoffRetryPolicy());
 
             services.AddHttpClient<IYodaApiService, YodaApiService>(client =>
             {
                 client.BaseAddress = new Uri(Configuration["Services:YodaApi:BaseUri"]);
             })
-            .SetHandlerLifetime(TimeSpan.FromMinutes(5))
-            .AddPolicyHandler(GetRetryPolicy());
+            .AddPolicyHandler(ExponentialBackoffRetryPolicy());
 
             services.AddHttpClient<IShakespeareApiService, ShakespeareApiService>(client =>
             {
                 client.BaseAddress = new Uri(Configuration["Services:ShakespeareeApi:BaseUri"]);
             })
-            .SetHandlerLifetime(TimeSpan.FromMinutes(5))
-            .AddPolicyHandler(GetRetryPolicy());
+            .AddPolicyHandler(ExponentialBackoffRetryPolicy());
 
             services.AddTransient<IPokemonService, PokemonService>();
             services.AddMemoryCache();
@@ -58,7 +54,6 @@ namespace FunPokedex.Api
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -69,18 +64,14 @@ namespace FunPokedex.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
 
-        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        private static IAsyncPolicy<HttpResponseMessage> ExponentialBackoffRetryPolicy()
         {
             Random jitterer = new();
             return HttpPolicyExtensions

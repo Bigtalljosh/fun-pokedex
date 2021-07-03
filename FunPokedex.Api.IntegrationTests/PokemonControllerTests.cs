@@ -25,7 +25,6 @@ namespace FunPokedex.Api.IntegrationTests
                 {
                     conf.AddJsonFile(configPath);
                 });
-
             });
         }
 
@@ -37,17 +36,13 @@ namespace FunPokedex.Api.IntegrationTests
         [InlineData("mew")]
         public async Task Get_ShouldReturnPokemonObjectWithDetails_WhenPassedValidParam(string pokemonNameOrId)
         {
-            // Arrange
             var client = _factory.CreateClient();
 
-            // Act
             var response = await client.GetAsync($"{_base}{pokemonNameOrId}");
 
-            // Assert
             response.EnsureSuccessStatusCode();
             var responseContent = await response.Content.ReadAsStringAsync();
             Assert.NotNull(responseContent);
-
             var responseContentTyped = JsonSerializer.Deserialize<Pokemon>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             Assert.NotNull(responseContentTyped.Name);
             Assert.NotNull(responseContentTyped.Description);
@@ -61,13 +56,10 @@ namespace FunPokedex.Api.IntegrationTests
         [InlineData("&*(ds9s")]
         public async Task Get_ShouldReturnNotFound_WhenPassedNamesThatAreNotPokemonOrNumbersThatAreNotPokemon(string notPokemonNameOrId)
         {
-            // Arrange
             var client = _factory.CreateClient();
 
-            // Act
             var response = await client.GetAsync($"{_base}{notPokemonNameOrId}");
 
-            // Assert
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
     }

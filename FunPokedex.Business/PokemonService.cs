@@ -24,8 +24,10 @@ namespace FunPokedex.Business
             var sanitisedInput = SanitiseInput(pokemonNameOrId);
             var pokemonDetails = await _pokemonApiService.GetPokemonDetails(sanitisedInput);
 
-            if (pokemonDetails is null) 
+            if (pokemonDetails is null)
+            {
                 return null;
+            }
 
             return Pokemon.Map(pokemonDetails);
         }
@@ -38,7 +40,6 @@ namespace FunPokedex.Business
             {
                 if (pokemonResponse.IsLegendary || pokemonResponse.Habitat.Equals("cave"))
                 {
-                    // Apply Yoda
                     var yodaResponse = await _yodaApiService.TranslateToYodaSpeak(pokemonResponse.Description);
                     if(yodaResponse != null && yodaResponse.Success.Total >= 1)
                     {
@@ -47,7 +48,6 @@ namespace FunPokedex.Business
                 }
                 else
                 {
-                    // Apply Shakespeare
                     var shakespeareResponse = await _shakespeareApiService.TranslateToShakespeareSpeak(pokemonResponse.Description);
                     if (shakespeareResponse != null && shakespeareResponse.Success.Total >= 1)
                     {
@@ -63,7 +63,6 @@ namespace FunPokedex.Business
 
             return pokemonResponse;
         }
-
 
         private static string SanitiseInput(string pokemonNameOrId)
         {
