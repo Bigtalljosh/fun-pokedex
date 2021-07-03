@@ -17,7 +17,9 @@ namespace FunPokedex.Business
 
         public async Task<Pokemon> Get(string pokemonName)
         {
-            return Pokemon.Map(await _pokemonApiService.GetPokemonDetails(pokemonName));
+            var pokemonDetails = PokemonExtensions.MapDetails(await _pokemonApiService.GetPokemonDetails(pokemonName));
+            pokemonDetails.MapSpecies(await _pokemonApiService.GetPokemonSpeciesDetails(pokemonName));
+            return pokemonDetails;
         }
     }
 }

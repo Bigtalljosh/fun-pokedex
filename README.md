@@ -23,7 +23,7 @@ Now, I know there are .NET API Clients that exist for this already, whilst the t
 Pre-reqs are .NET 5.
 You can install this by downloading from [here and running the installer](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.301-windows-x64-installer).
 
-Once you have that installed you should be able to navigate into the folder in this repo which contains the `.sln` file, open up a terminal and run
+Once you have that installed you should be able to navigate into the folder in this repo which contains the `.sln` file (the root), open up a terminal and run
 
 `dotnet run --project .\FunPokedex.Api\FunPokedex.Api.csproj`
 

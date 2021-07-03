@@ -66,7 +66,7 @@ namespace FunPokedex.PokemonApi
         public int Rarity { get; set; }
 
         [JsonPropertyName("version")]
-        public Version Version { get; set; }
+        public SpeciesVersion Version { get; set; }
     }
 
     public class HeldItem
@@ -639,7 +639,7 @@ namespace FunPokedex.PokemonApi
         public TypeDetail TypeDetail { get; set; }
     }
 
-    public class PokemonApiResponse
+    public class PokemonApiDetailsResponse
     {
         [JsonPropertyName("abilities")]
         public List<Ability> Abilities { get; set; }
