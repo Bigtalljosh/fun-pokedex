@@ -59,5 +59,35 @@ namespace FunPokedex.Business.UnitTests
             Assert.Equal("cave", response.Habitat);
             Assert.False(response.IsLegendary);
         }
+
+        [Fact]
+        public async Task Get_ShouldReturnNull_WhenApiResponseNull()
+        {
+            var pokemonName = "gengar";
+            PokemonApiDetailsResponse nullDetilsResponse = null;
+            PokemonApiSpeciesResponse nullSpeciesResponse = null;
+            _pokemonApiService.GetPokemonDetails(Arg.Any<string>()).Returns(nullDetilsResponse);
+            _pokemonApiService.GetPokemonSpeciesDetails(Arg.Any<string>()).Returns(nullSpeciesResponse);
+            var service = new PokemonService(_pokemonApiService);
+
+            var response = await service.Get(pokemonName);
+
+            Assert.Null(response);
+        }
+
+        [Fact]
+        public async Task Get_ShouldReturnPartialContent_WhenSpeciesApiResponseNull()
+        {
+            var pokemonName = "gengar";
+            PokemonApiSpeciesResponse nullSpeciesResponse = null;
+            _pokemonApiService.GetPokemonSpeciesDetails(Arg.Any<string>()).Returns(nullSpeciesResponse);
+            var service = new PokemonService(_pokemonApiService);
+
+            var response = await service.Get(pokemonName);
+
+            Assert.NotNull(response);
+            Assert.Equal(94, response.Id);
+            Assert.Equal("Gengar", response.Name);
+        }
     }
 }

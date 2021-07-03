@@ -2,6 +2,7 @@ using FunPokedex.Business;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
@@ -51,6 +52,23 @@ namespace FunPokedex.Api.IntegrationTests
             Assert.NotNull(responseContentTyped.Name);
             Assert.NotNull(responseContentTyped.Description);
             Assert.NotNull(responseContentTyped.Habitat);
+        }
+
+        [Theory]
+        [InlineData("Agumon")]
+        [InlineData("Greymon")]
+        [InlineData("99999")]
+        [InlineData("&*(ds9s")]
+        public async Task Get_ShouldReturnNotFound_WhenPassedNamesThatAreNotPokemonOrNumbersThatAreNotPokemon(string notPokemonNameOrId)
+        {
+            // Arrange
+            var client = _factory.CreateClient();
+
+            // Act
+            var response = await client.GetAsync($"{_base}{notPokemonNameOrId}");
+
+            // Assert
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
 }

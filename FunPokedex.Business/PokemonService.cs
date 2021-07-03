@@ -15,9 +15,20 @@ namespace FunPokedex.Business
         public async Task<Pokemon> Get(string pokemonNameOrId)
         {
             var sanitisedInput = SanitiseInput(pokemonNameOrId);
+            var pokemonDetails = await _pokemonApiService.GetPokemonDetails(sanitisedInput);
+            
+            if (pokemonDetails is null) return null;
+
             var response = new Pokemon();
-            response.MapDetails(await _pokemonApiService.GetPokemonDetails(sanitisedInput))
-                    .MapSpecies(await _pokemonApiService.GetPokemonSpeciesDetails(sanitisedInput));
+            response.MapDetails(pokemonDetails);
+
+            var speciesDetails = await _pokemonApiService.GetPokemonSpeciesDetails(sanitisedInput);
+
+            if (speciesDetails != null)
+            {
+                response.MapSpecies(speciesDetails);
+            }
+
             return response;
         }
 

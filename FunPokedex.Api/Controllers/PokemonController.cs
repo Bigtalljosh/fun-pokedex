@@ -23,7 +23,13 @@ namespace FunPokedex.Api.Controllers
         public async Task<IActionResult> Get(string pokemonName)
         {
             var pokemon = await _pokemonService.Get(pokemonName);
-            return Ok(pokemon);
+
+            if (pokemon != null)
+            {
+                return Ok(pokemon);
+            }
+
+            return NotFound();
         }
     }
 }
