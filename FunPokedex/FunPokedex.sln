@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31410.414
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Api", "FunPokedex.Api\FunPokedex.Api.csproj", "{5B4BB517-F1C2-4C98-995E-7B9AE12251AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Business", "FunPokedex.Business\FunPokedex.Business.csproj", "{98E406B2-2535-461F-925D-F600B5CDDA31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integrations", "{C880B829-8777-4DBD-AAC9-29D18B9C3980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.PokemonApi", "FunPokedex.PokemonApi\FunPokedex.PokemonApi.csproj", "{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B4BB517-F1C2-4C98-995E-7B9AE12251AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B4BB517-F1C2-4C98-995E-7B9AE12251AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B4BB517-F1C2-4C98-995E-7B9AE12251AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B4BB517-F1C2-4C98-995E-7B9AE12251AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98E406B2-2535-461F-925D-F600B5CDDA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E406B2-2535-461F-925D-F600B5CDDA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E406B2-2535-461F-925D-F600B5CDDA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E406B2-2535-461F-925D-F600B5CDDA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0606EA2E-E0CE-4583-9B69-2F2C60223BC4}
+	EndGlobalSection
+EndGlobal
