@@ -42,7 +42,7 @@ namespace FunPokedex.Business
                     var yodaResponse = await _yodaApiService.TranslateToYodaSpeak(pokemonResponse.Description);
                     if(yodaResponse != null && yodaResponse.Success.Total >= 1)
                     {
-                        pokemonResponse.Description = yodaResponse.Contents.Translation;
+                        pokemonResponse.Description = yodaResponse.Contents.Translated;
                     }
                 }
                 else
@@ -51,7 +51,7 @@ namespace FunPokedex.Business
                     var shakespeareResponse = await _shakespeareApiService.TranslateToShakespeareSpeak(pokemonResponse.Description);
                     if (shakespeareResponse != null && shakespeareResponse.Success.Total >= 1)
                     {
-                        pokemonResponse.Description = shakespeareResponse.Contents.Translation;
+                        pokemonResponse.Description = shakespeareResponse.Contents.Translated;
                     }                    
                 }
             }

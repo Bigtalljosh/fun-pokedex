@@ -1,4 +1,6 @@
 ﻿using FunPokedex.PokemonApi;
+using System;
+using System.Linq;
 
 namespace FunPokedex.Business
 {
@@ -16,7 +18,7 @@ namespace FunPokedex.Business
             {
                 Id = pokemonApiResponse.Id,
                 Name = pokemonApiResponse.Name,
-                Description = pokemonApiResponse.FlavorTextEntries[0].FlavorText.Replace("\n", " ").Replace("\f", " "), // TODO make this cleaner, also need to make sure it's always English, Pikachu for example is Japanese which likely won't work in the other APIs
+                Description = pokemonApiResponse.FlavorTextEntries.FirstOrDefault(e => e.Language.Name.Equals("en", StringComparison.InvariantCultureIgnoreCase)).FlavorText.Replace("\n", " ").Replace("\f", " "),
                 IsLegendary = pokemonApiResponse.IsLegendary,
                 Habitat = pokemonApiResponse.Habitat.Name,
             };
