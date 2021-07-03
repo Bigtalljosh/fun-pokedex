@@ -13,17 +13,17 @@ namespace FunPokedex.PokemonApi
             _client = client;
         }
 
-        public async Task<PokemonApiDetailsResponse> GetPokemonDetails(string pokemonName)
+        public async Task<PokemonApiDetailsResponse> GetPokemonDetails(string pokemonNameOrId)
         {
-            var response = await _client.GetAsync($"v2/pokemon/{pokemonName}");
+            var response = await _client.GetAsync($"v2/pokemon/{pokemonNameOrId}");
             var responseJson = await response.Content.ReadAsStringAsync();
             var pokemon = response.IsSuccessStatusCode ? JsonSerializer.Deserialize<PokemonApiDetailsResponse>(responseJson) : null;
             return pokemon;
         }
 
-        public async Task<PokemonApiSpeciesResponse> GetPokemonSpeciesDetails(string pokemonName)
+        public async Task<PokemonApiSpeciesResponse> GetPokemonSpeciesDetails(string pokemonNameOrId)
         {
-            var response = await _client.GetAsync($"v2/pokemon-species/{pokemonName}");
+            var response = await _client.GetAsync($"v2/pokemon-species/{pokemonNameOrId}");
             var responseJson = await response.Content.ReadAsStringAsync();
             var pokemon = response.IsSuccessStatusCode ? JsonSerializer.Deserialize<PokemonApiSpeciesResponse>(responseJson) : null;
             return pokemon;

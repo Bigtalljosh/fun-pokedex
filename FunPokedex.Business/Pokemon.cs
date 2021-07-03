@@ -13,18 +13,16 @@ namespace FunPokedex.Business
 
     public static class PokemonExtensions
     {
-        public static Pokemon MapDetails(PokemonApiDetailsResponse pokemonApiResponse)
+        public static Pokemon MapDetails(this Pokemon pokemon, PokemonApiDetailsResponse pokemonApiResponse)
         {
-            return new Pokemon
-            {
-                Id = pokemonApiResponse.Id,
-                Name = pokemonApiResponse.Name
-            };
+            pokemon.Id = pokemonApiResponse.Id;
+            pokemon.Name = pokemonApiResponse.Name;
+            return pokemon;
         }
 
         public static Pokemon MapSpecies(this Pokemon pokemon, PokemonApiSpeciesResponse pokemonApiResponse)
         {
-            pokemon.Description = pokemonApiResponse.FlavorTextEntries[0].FlavorText.Replace("\n", " ").Replace("\f"," "); // TODO make this cleaner, also need to make sure it's always English, Pikachu for example is Japanese which likely won't work in the other APIs
+            pokemon.Description = pokemonApiResponse.FlavorTextEntries[0].FlavorText.Replace("\n", " ").Replace("\f", " "); // TODO make this cleaner, also need to make sure it's always English, Pikachu for example is Japanese which likely won't work in the other APIs
             pokemon.IsLegendary = pokemonApiResponse.IsLegendary;
             pokemon.Habitat = pokemonApiResponse.Habitat.Name;
             return pokemon;
