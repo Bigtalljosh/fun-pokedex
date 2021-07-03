@@ -24,10 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="MockedPokemonDetailsResponse.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="MockedPokemonSpeciesResponse.json">
+    <None Update="MockedPokemonResponse.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

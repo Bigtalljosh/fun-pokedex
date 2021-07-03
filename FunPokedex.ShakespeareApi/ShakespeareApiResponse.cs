@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FunPokedex.ShakespearApi
+namespace FunPokedex.ShakespeareApi
 {
     public class Success
     {
@@ -20,7 +20,7 @@ namespace FunPokedex.ShakespearApi
         public string Translation { get; set; }
     }
 
-    public class ShakespearApiResponse
+    public class ShakespeareApiResponse
     {
         [JsonPropertyName("success")]
         public Success Success { get; set; }

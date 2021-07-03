@@ -1,5 +1,6 @@
 using FunPokedex.PokemonApi;
 using FunPokedex.PokemonApiUnitTests.Mocks;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.IO;
 using System.Net;
@@ -15,14 +16,15 @@ namespace FunPokedex.PokemonApiUnitTests
         public async Task GetPokemonDetails_ShouldReturnPokemonDetailsObject_WhenPassedValidQueryParam()
         {
             var pokemonName = "mewtwo";
-            var mockedResponseJson = File.ReadAllText("MockedPokemonDetailsResponse.json");
+            var mockedResponseJson = File.ReadAllText("MockedPokemonResponse.json");
             var mockHttpHandler = new MockHttpMessageHandler(mockedResponseJson, HttpStatusCode.OK);
             var httpClient = new HttpClient(mockHttpHandler)
             {
                 BaseAddress = new Uri("https://testbase.com/")
             };
+            var cache = new MemoryCache(new MemoryCacheOptions());
 
-            var service = new PokemonApiService(httpClient);
+            var service = new PokemonApiService(httpClient, cache);
             var pokemon = await service.GetPokemonDetails(pokemonName);
 
             Assert.NotNull(pokemon);
@@ -38,7 +40,9 @@ namespace FunPokedex.PokemonApiUnitTests
                 BaseAddress = new Uri("https://testbase.com/")
             };
 
-            var service = new PokemonApiService(httpClient);
+            var cache = new MemoryCache(new MemoryCacheOptions());
+
+            var service = new PokemonApiService(httpClient, cache);
             var pokemon = await service.GetPokemonDetails(pokemonName);
 
             Assert.Null(pokemon);

@@ -11,21 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.PokemonApi", "FunPokedex.PokemonApi\FunPokedex.PokemonApi.csproj", "{EB4719A9-84F5-415E-80A4-0BF9E8C6DE84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.PokemonApiUnitTests", "FunPokedex.PokemonApiUnitTests\FunPokedex.PokemonApiUnitTests.csproj", "{A3A3D959-2D68-40A1-BEA8-E6A496E95C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.PokemonApiUnitTests", "FunPokedex.PokemonApiUnitTests\FunPokedex.PokemonApiUnitTests.csproj", "{A3A3D959-2D68-40A1-BEA8-E6A496E95C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Business.UnitTests", "FunPokedex.Business.UnitTests\FunPokedex.Business.UnitTests.csproj", "{A9938ED7-E179-4B1B-94E5-D6D956152C52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.Business.UnitTests", "FunPokedex.Business.UnitTests\FunPokedex.Business.UnitTests.csproj", "{A9938ED7-E179-4B1B-94E5-D6D956152C52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.Api.IntegrationTests", "FunPokedex.Api.IntegrationTests\FunPokedex.Api.IntegrationTests.csproj", "{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.Api.IntegrationTests", "FunPokedex.Api.IntegrationTests\FunPokedex.Api.IntegrationTests.csproj", "{2DB960AC-F8E0-4E7F-8EFA-4D8769138CB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PokemonApi", "PokemonApi", "{482BE998-42D5-4573-94E4-A4A5096FB7ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokemon.YodaApi", "FunPokemon.YodaApi\FunPokemon.YodaApi.csproj", "{CC184888-1BB7-4883-9394-78E3F0C1820E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokemon.YodaApi", "FunPokemon.YodaApi\FunPokemon.YodaApi.csproj", "{CC184888-1BB7-4883-9394-78E3F0C1820E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Yoda", "Yoda", "{202399CD-6520-4280-AE02-1E29507035FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunPokedex.ShakespearApi", "FunPokedex.ShakespearApi\FunPokedex.ShakespearApi.csproj", "{A603C06F-48F9-4932-B667-A1C57EED733E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shakespeare", "Shakespeare", "{0396414E-F05E-44A9-8A9B-1C572CA16A3F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shakespear", "Shakespear", "{0396414E-F05E-44A9-8A9B-1C572CA16A3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.ShakespeareApi", "FunPokedex.ShakespeareApi\FunPokedex.ShakespeareApi.csproj", "{89FD3AE5-3A76-4642-AA43-731A143672C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +61,10 @@ Global
 		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC184888-1BB7-4883-9394-78E3F0C1820E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A603C06F-48F9-4932-B667-A1C57EED733E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A603C06F-48F9-4932-B667-A1C57EED733E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A603C06F-48F9-4932-B667-A1C57EED733E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A603C06F-48F9-4932-B667-A1C57EED733E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,8 +75,8 @@ Global
 		{482BE998-42D5-4573-94E4-A4A5096FB7ED} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
 		{CC184888-1BB7-4883-9394-78E3F0C1820E} = {202399CD-6520-4280-AE02-1E29507035FA}
 		{202399CD-6520-4280-AE02-1E29507035FA} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
-		{A603C06F-48F9-4932-B667-A1C57EED733E} = {0396414E-F05E-44A9-8A9B-1C572CA16A3F}
 		{0396414E-F05E-44A9-8A9B-1C572CA16A3F} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
+		{89FD3AE5-3A76-4642-AA43-731A143672C0} = {0396414E-F05E-44A9-8A9B-1C572CA16A3F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0606EA2E-E0CE-4583-9B69-2F2C60223BC4}

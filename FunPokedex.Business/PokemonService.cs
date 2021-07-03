@@ -1,5 +1,5 @@
 ﻿using FunPokedex.PokemonApi;
-using FunPokedex.ShakespearApi;
+using FunPokedex.ShakespeareApi;
 using FunPokemon.YodaApi;
 using System;
 using System.Threading.Tasks;
@@ -10,13 +10,13 @@ namespace FunPokedex.Business
     {
         private readonly IPokemonApiService _pokemonApiService;
         private readonly IYodaApiService _yodaApiService;
-        private readonly IShakespearApiService _shakespearApiService;
+        private readonly IShakespeareApiService _shakespeareApiService;
 
-        public PokemonService(IPokemonApiService pokemonApiService, IYodaApiService yodaApiService, IShakespearApiService shakespearApiService)
+        public PokemonService(IPokemonApiService pokemonApiService, IYodaApiService yodaApiService, IShakespeareApiService shakespeareApiService)
         {
             _pokemonApiService = pokemonApiService;
             _yodaApiService = yodaApiService;
-            _shakespearApiService = shakespearApiService;
+            _shakespeareApiService = shakespeareApiService;
         }
 
         public async Task<Pokemon> Get(string pokemonNameOrId)
@@ -47,11 +47,11 @@ namespace FunPokedex.Business
                 }
                 else
                 {
-                    // Apply Shakespear
-                    var shakespearResponse = await _shakespearApiService.TranslateToShakespearSpeak(pokemonResponse.Description);
-                    if (shakespearResponse != null && shakespearResponse.Success.Total >= 1)
+                    // Apply Shakespeare
+                    var shakespeareResponse = await _shakespeareApiService.TranslateToShakespeareSpeak(pokemonResponse.Description);
+                    if (shakespeareResponse != null && shakespeareResponse.Success.Total >= 1)
                     {
-                        pokemonResponse.Description = shakespearResponse.Contents.Translation;
+                        pokemonResponse.Description = shakespeareResponse.Contents.Translation;
                     }                    
                 }
             }

@@ -1,5 +1,5 @@
 using FunPokedex.PokemonApi;
-using FunPokedex.ShakespearApi;
+using FunPokedex.ShakespeareApi;
 using FunPokemon.YodaApi;
 using NSubstitute;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace FunPokedex.Business.UnitTests
     {
         private readonly IPokemonApiService _pokemonApiService;
         private readonly IYodaApiService _yodaApiService;
-        private readonly IShakespearApiService _shakespearApiService;
+        private readonly IShakespeareApiService _shakespeareApiService;
 
         public PokemonServiceTests()
         {
@@ -29,14 +29,14 @@ namespace FunPokedex.Business.UnitTests
             _pokemonApiService.GetPokemonDetails(Arg.Any<string>()).Returns(mockDetailsResponse);
 
             _yodaApiService = Substitute.For<IYodaApiService>();
-            _shakespearApiService = Substitute.For<IShakespearApiService>();
+            _shakespeareApiService = Substitute.For<IShakespeareApiService>();
         }
 
         [Fact]
         public async Task Get_ShouldReturnPokemonObjectWithDetails_WhenPassedValidParam()
         {
             var pokemonName = "gengar";
-            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespearApiService);
+            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespeareApiService);
            
             var response = await service.Get(pokemonName);
 
@@ -55,7 +55,7 @@ namespace FunPokedex.Business.UnitTests
         [InlineData("GENGAR")]
         public async Task Get_ShouldReturnPokemonObjectWithDetails_WhenPassedANameSpacesApostropheFullStopOrUppercase(string pokemonName)
         {
-            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespearApiService);
+            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespeareApiService);
 
             var response = await service.Get(pokemonName);
 
@@ -73,7 +73,7 @@ namespace FunPokedex.Business.UnitTests
             var pokemonName = "gengar";
             PokemonApiResponse nullDetilsResponse = null;
             _pokemonApiService.GetPokemonDetails(Arg.Any<string>()).Returns(nullDetilsResponse);
-            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespearApiService);
+            var service = new PokemonService(_pokemonApiService, _yodaApiService, _shakespeareApiService);
 
             var response = await service.Get(pokemonName);
 
