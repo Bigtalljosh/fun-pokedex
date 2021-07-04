@@ -30,6 +30,11 @@ namespace FunPokedex.ShakespeareApi
                 var responseJson = await response.Content.ReadAsStringAsync();
                 var shakespeare = response.IsSuccessStatusCode ? JsonSerializer.Deserialize<ShakespeareApiResponse>(responseJson) : null;
 
+                if (shakespeare is null)
+                {
+                    return shakespeare;
+                }
+
                 var cacheOptions = new MemoryCacheEntryOptions()
                             .SetSlidingExpiration(TimeSpan.FromMinutes(60));
 

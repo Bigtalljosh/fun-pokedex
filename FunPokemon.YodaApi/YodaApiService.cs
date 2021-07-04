@@ -30,6 +30,11 @@ namespace FunPokemon.YodaApi
                 var responseJson = await response.Content.ReadAsStringAsync();
                 var yoda = response.IsSuccessStatusCode ? JsonSerializer.Deserialize<YodaApiResponse>(responseJson) : null;
 
+                if (yoda is null)
+                {
+                    return yoda;
+                }
+
                 var cacheOptions = new MemoryCacheEntryOptions()
                             .SetSlidingExpiration(TimeSpan.FromMinutes(60));
 

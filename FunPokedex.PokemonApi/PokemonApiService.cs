@@ -29,6 +29,11 @@ namespace FunPokedex.PokemonApi
                 var responseJson = await response.Content.ReadAsStringAsync();
                 var pokemon = response.IsSuccessStatusCode ? JsonSerializer.Deserialize<PokemonApiResponse>(responseJson) : null;
 
+                if (pokemon is null)
+                {
+                    return pokemon;
+                }
+
                 var cacheOptions = new MemoryCacheEntryOptions()
                             .SetSlidingExpiration(TimeSpan.FromMinutes(60));
 

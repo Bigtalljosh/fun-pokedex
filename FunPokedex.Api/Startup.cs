@@ -59,11 +59,12 @@ namespace FunPokedex.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FunPokedex.Api v1"));
             }
 
-            app.UseHttpsRedirection();
+            // For production, this would usually sit in the above block and be disabled, however for demo purposes we need it
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FunPokedex.Api v1"));
+
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
