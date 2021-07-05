@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shakespeare", "Shakespeare"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.ShakespeareApi", "FunPokedex.ShakespeareApi\FunPokedex.ShakespeareApi.csproj", "{89FD3AE5-3A76-4642-AA43-731A143672C0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunPokedex.YodaApiUnitTests", "FunPokedex.YodaApiUnitTests\FunPokedex.YodaApiUnitTests.csproj", "{12EF5B91-C965-4ECB-84F7-B5D3156897D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89FD3AE5-3A76-4642-AA43-731A143672C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12EF5B91-C965-4ECB-84F7-B5D3156897D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12EF5B91-C965-4ECB-84F7-B5D3156897D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12EF5B91-C965-4ECB-84F7-B5D3156897D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12EF5B91-C965-4ECB-84F7-B5D3156897D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{202399CD-6520-4280-AE02-1E29507035FA} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
 		{0396414E-F05E-44A9-8A9B-1C572CA16A3F} = {C880B829-8777-4DBD-AAC9-29D18B9C3980}
 		{89FD3AE5-3A76-4642-AA43-731A143672C0} = {0396414E-F05E-44A9-8A9B-1C572CA16A3F}
+		{12EF5B91-C965-4ECB-84F7-B5D3156897D0} = {202399CD-6520-4280-AE02-1E29507035FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0606EA2E-E0CE-4583-9B69-2F2C60223BC4}
