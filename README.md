@@ -50,6 +50,7 @@ and finally, navigate to the page in your browser by visiting the following:
 This is not a perfect solution, there's a couple of things I'd change were this for a real production service. Some of the things I'd change are:
 
 * Swagger is enabled in release mode
+* There's no observability in this solution, logging, metrics etc. For a production service those are critical
 * The tests can easily be broken with a simple return Ok(new Pokemon {.....}); We should be checking the content too
 * Given the rate limiting on the third party API(s) and the brittle behaviour this causes, I'd be considering if we could store the responses in our own DB not just in a cache
 * I'd question if the validation logic belongs in the business layer - I put it there for now with the train of thought that multiple controllers might end up using this same service and end up duplicating code and possibly having different Sanitisation logic. Didn't want to overthink and tried to keep it simple for this demo though
